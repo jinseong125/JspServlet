@@ -17,9 +17,11 @@ import javax.servlet.http.HttpServletResponse;
  * 3. 주요 특징
  *    1) 동적 웹 페이지를 생성
  *    2) 클라이언트 요청을 처리
- *    3) MVC 패턴에서 주로 Controller 역할 담당
+ *    3) MVC 패턴에서 주로 Controller 역할 담당 (MVC- Model View Controller)
+ *        - Model과 View 연결자.
  *    4) 웹 컨테이너(서블릿 컨테이너, Tomcat) 안에서 동작 (하나의 애플리케이션에서 동일한 이름의 서블릿은 사용 불가)
  *    5) 객체는 싱글톤(Singleton)으로 관리
+ *       싱글톤 - 프로그램 실행 중에 딱 하나의 인스턴스만 만들어서 공유하는 디자인 패턴
  *    6) 다양한 형식(HTML, JSON, XML 등)으로 응답 가능
  */
 // @WebServlet("/RequestServlet")  //------------- 현재 서블릿의 요청 주소(URL Mapping, URL Pattern)를 의미합니다. 디폴트는 서블릿 이름(/RequestServlet)
