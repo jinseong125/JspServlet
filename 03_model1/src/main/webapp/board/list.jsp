@@ -1,4 +1,4 @@
-<%@page import="dao.BoardDAO"%>
+
 <%@page import="model.dto.BoardDTO"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -39,7 +39,7 @@
           <tr>
             <td>${board.bid}</td>
             <td>${board.user.uid}</td>
-            <td>${board.title}</td>
+            <td><a href="${contextPath}/board/detail.jsp?bid=${board.bid}">${board.bid}</a></td>
             <td>${board.createdAt}</td>
           </tr>
         </c:forEach>

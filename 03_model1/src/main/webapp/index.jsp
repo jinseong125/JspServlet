@@ -13,4 +13,4 @@
   <a href="${contextPath}/board/list.jsp">boards</a>
 
 </body>
-</html>
+</html> 

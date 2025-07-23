@@ -1,4 +1,4 @@
-<%@page import="dao.BoardDAO"%>
+
 <%@page import="model.dto.BoardDTO"%>
 <%@page import="model.dto.UserDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -7,6 +7,8 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 
 <%
+p
+
 //----- registForm.jsp에서 제출된 양식
 request.setCharacterEncoding("UTF-8");
 String uid = request.getParameter("uid");
@@ -22,7 +24,7 @@ board.setTitle(title);
 board.setContent(content);
 
 //----- BoardDTO 객체를 DB에 저장
-int count = BoardDAO.getInstance().insertBoard(board);
+int count = BoardDaoimpl.getInstance().insertBoard(board);
 
 //----- 등록 후 이동할 경로 및 메시지 결정
 String msg = "게시글 등록 실패";
@@ -35,7 +37,6 @@ if (count == 1) {
 
 <script>
   alert("<%=msg%>");
-  location.href = "<%=url%>
-  ";
+  location.href = "<%=url%>"
 </script>
 
