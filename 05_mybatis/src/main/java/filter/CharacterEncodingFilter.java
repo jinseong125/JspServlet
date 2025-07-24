@@ -10,6 +10,12 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpFilter;
 
+/*
+ * @WebFilter 애너테이션은 web.xml의 <filter-mapping> 태그로 대신할 수 있습니다.
+ * @WebFilter 애너테이션은 web.xml의 <filter-mapping> 태그가 둘 다 존재하는 경우에는
+ * web.xml의 <filter-mapping> 태그가 우선적으로 고려되지만, 실행 순서가 보장되어 있지 않습니다.
+ */
+
 @WebFilter("/*")
 
 public class CharacterEncodingFilter extends HttpFilter implements Filter {
