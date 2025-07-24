@@ -12,7 +12,10 @@
 <body>
 
   <h1>신규 게시글 등록 화면</h1>
-  <form action="${contextPath}/board/regist.do" method="post">
+  
+  <form action="${contextPath}/board/regist.do"
+   method="post">
+   
     <label for="uid">작성자</label>
      <select name="uid" id="uid">
       <option>1</option>
@@ -35,7 +38,7 @@
     <br>
 
     <button type="submit">등록하기</button>
-    <button type="button" onclick="list()">목록보기</button>s
+    <button type="button" onclick="list()">목록보기</button>
 
     <script type="text/javascript">
           function list() {
@@ -44,5 +47,6 @@
           }
         
         </script>
+        </form>
 </body>
 </html>

@@ -25,6 +25,7 @@
 
   <button type="button" onclick="list()">목록보기</button>
   <c:if test="${board ne null}">
+    <button type="button" onclick="modifyBoard()">수정하기</button>
     <button type="button" onclick="deleteBoard()">삭제하기</button>
   </c:if>
 
@@ -32,6 +33,9 @@
       function list() {
         location.href = "${contextPath}/board/list.do";
       }
+      function modifyBoard() {
+        location.href = "${contextPath}/board/modifyForm.do?bid=${board.bid}&code=modify";
+     }
       function deleteBoard() {
         if (confirm("현재 게시글을 삭제할까요?")) {
           location.href = "${contextPath}/board/remove.do?bid=${board.bid}";
