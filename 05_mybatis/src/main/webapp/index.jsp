@@ -17,12 +17,16 @@
     </c:if>
 
     <c:if test="${not empty sessionScope.loginUser}">
-      <div>${sessionScope.loginUser.nickname}님 환영합니다.</div>
+      <div>
+      ${sessionScope.loginUser.nickname}님 환영합니다.
       <a href="${contextPath}/user/logout">로그아웃</a>
+      </div>
     </c:if>
   </div>
 
   <hr>
+  
+  <a href="${contextPath}/board/list">게시글</a>
 
 </body>
 </html>

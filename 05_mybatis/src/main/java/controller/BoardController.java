@@ -8,18 +8,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import common.ActionForward;
-import service.UserService;
-import service.UserServiceImpl;
+import service.BoardService;
+import service.BoardServiceImpl;
 
-@WebServlet("/user/*")
 
-public class UserController extends HttpServlet {
+@WebServlet("/board/*")
+
+public class BoardController extends HttpServlet {
 
   private static final long serialVersionUID = 1L;
 
   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-    UserService userService = new UserServiceImpl();
+    BoardService boardService = new BoardServiceImpl();
 
     String requestURI = request.getRequestURI();
     String contextPath= request.getContextPath();
@@ -28,17 +29,36 @@ public class UserController extends HttpServlet {
     ActionForward af = null;
 
     switch (path) {
-    case "/user/loginForm":
-      af = new ActionForward("/view/user/login.jsp", false);
+    case "/board/list":
+      af = boardService.getBoards(request);
       break;
-    case "/user/login":
-      af = userService.login(request);
+    case "/board/find1":
+    af = boardService.findBoards1(request);
+    break;
+    case "/board/find2":
+      af = boardService.findBoards2(request);
       break;
-    case "/user/logout":
-      af = userService.logout(request);
+    case "/board/removeBoards":
+      boardService.removeBoards(request, response);
       break;
-    default:
-      System.out.println("default");
+    case "/board/registForm":
+     af = new ActionForward("/view/board/regist.jsp", false);
+     break;
+    case "/board/regist":
+      boardService.registBoard(request, response);
+      break;
+    case "/board/detail":
+      af = boardService.getBoardById(request);
+      break;
+    case "/board/remove":
+      boardService.removeBoard(request, response);
+        break;
+    case "/board/bodifyForm":
+      af = boardService.getBoardById(request);
+      break;
+    case "/board/modify":
+      boardService.modifyBoard(request, response);
+      break;
     }
 
     if (af != null) {
@@ -51,7 +71,9 @@ public class UserController extends HttpServlet {
 
   }
 
+
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
     doGet(request, response);
   }
 
